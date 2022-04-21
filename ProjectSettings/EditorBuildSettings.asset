@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Samples/Wiimote API/0.0.1/Working Sample scenes/WiimoteConnectionDemoScene.unity
+    guid: 5ac11e93e0f1d4c2690c672d355098a3
+  - enabled: 1
+    path: Assets/Scenes/PlayerTestScene.unity
+    guid: 33716a30708c3408e82d1048e480e386
   m_configObjects: {}

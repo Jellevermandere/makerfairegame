@@ -1,7 +1,14 @@
 {
   "dependencies": {
+    "be.jellever.wiimoteapi": {
+      "version": "https://github.com/Jellevermandere/Unity-Wiimote.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "ada1b5feafd2e6c3a763dd452ac13a5489a08c2e"
+    },
     "com.unity.burst": {
-      "version": "1.6.4",
+      "version": "1.6.5",
       "depth": 1,
       "source": "registry",
       "dependencies": {
