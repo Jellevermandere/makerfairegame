@@ -6,7 +6,7 @@ using WiimoteApi;
 public class InputController : MonoBehaviour
 {
     [SerializeField]
-    private List<PlayerInput> playerInputs = new List<PlayerInput>();
+    public List<RacerInput> playerInputs = new List<RacerInput>();
 
     [SerializeField]
     private bool UseWiimotes = false;
@@ -29,7 +29,7 @@ public class InputController : MonoBehaviour
         {
             while (playerInputs.Count < WiimoteManager.Wiimotes.Count)
             {
-                playerInputs.Add(new PlayerInput());
+                playerInputs.Add(new RacerInput());
             }
         }
     }
@@ -60,14 +60,14 @@ public class InputController : MonoBehaviour
     /// </summary>
     /// <param name="nr">the player number</param>
     /// <returns>the player input class</returns>
-    public PlayerInput GetPlayerInput(int nr)
+    public RacerInput GetPlayerInput(int nr)
     {
         return playerInputs[nr];
     }
 }
 
 [System.Serializable]
-public class PlayerInput
+public class RacerInput
 {
     [Tooltip("The direction for the player to go")]
     public Vector2 moveDirection = Vector2.zero;

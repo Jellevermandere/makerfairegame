@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+public class RacerController : MonoBehaviour
 {
     [Header("Player Parameters")]
     [SerializeField]
-    private int playerNr = 0;
+    public int playerNr = 0;
     [SerializeField]
     private float playerAcceleration = 100;
     [SerializeField]
@@ -22,11 +22,17 @@ public class PlayerController : MonoBehaviour
     private Vector3 forwardTransformOffset = new Vector3(0f, 0.5f, 0f);
     [Header("Scene objects")]
     [SerializeField]
-    private Transform forwardTransform;
+    public Transform forwardTransform;
     [SerializeField]
-    private InputController inputController;
+    public Transform goal;
+    [SerializeField]
+    public InputController inputController;
 
-    private PlayerInput playerInput = new PlayerInput();
+
+    public bool hasBall = false;
+    public bool inGoal = false;
+
+    private RacerInput playerInput = new RacerInput();
     private Rigidbody rb;
     private Vector3 forwardDirection = Vector3.forward;
 
