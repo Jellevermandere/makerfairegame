@@ -28,4 +28,10 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    [ContextMenu("Main Menu")]
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

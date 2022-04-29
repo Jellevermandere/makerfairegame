@@ -25,12 +25,16 @@ public class RacerController : MonoBehaviour
     public Transform forwardTransform;
     [SerializeField]
     public Transform goal;
-    [SerializeField]
     public InputController inputController;
+    [SerializeField]
+    private RacerVisualListScriptableObject racerVisualList;
+    [SerializeField]
+    private MeshRenderer bodyMesh;
 
 
     public bool hasBall = false;
     public bool inGoal = false;
+    public int score = 0;
 
     private RacerInput playerInput = new RacerInput();
     private Rigidbody rb;
@@ -46,6 +50,7 @@ public class RacerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         forwardDirection = transform.forward;
+        SetPlayerColor();
     }
 
     // Update is called once per frame
@@ -89,6 +94,11 @@ public class RacerController : MonoBehaviour
         forwardDirection = forwardTransform.forward;
 
         forwardTransform.position = transform.position + forwardTransformOffset;
+    }
+
+    void SetPlayerColor()
+    {
+        bodyMesh.material = racerVisualList.racerVisuals[playerNr].racerMaterial;
     }
 
 }

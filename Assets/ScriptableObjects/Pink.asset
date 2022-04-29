@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Pink
   racerMaterial: {fileID: 2100000, guid: 1b98bf2bc81db4203aeadbbce4f93c24, type: 2}
+  floorMaterial: {fileID: 2100000, guid: 8418d38b3ca454fc9beec1d6c4047dcd, type: 2}
   playerColor: {r: 0.9056604, g: 0.20932718, b: 0.72432303, a: 1}
   fieldColor: {r: 0.9339623, g: 0.7445265, b: 0.88999057, a: 1}

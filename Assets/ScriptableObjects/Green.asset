@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Green
   racerMaterial: {fileID: 2100000, guid: b42f1206643b34f28886bfbe28614e10, type: 2}
+  floorMaterial: {fileID: 2100000, guid: ad90489e79fc54137ab8d5ec14395579, type: 2}
   playerColor: {r: 0.18752226, g: 0.8113208, b: 0.3204921, a: 1}
   fieldColor: {r: 0.6148985, g: 0.8867924, b: 0.66660595, a: 1}

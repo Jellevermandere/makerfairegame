@@ -37,8 +37,10 @@ public class Ball : MonoBehaviour
     {
         if ((goalLayer.value & (1 << other.gameObject.layer)) > 0)
         {
-            
-            owner = other.GetComponent<Goal>().GetPlayerNr();
+
+            Goal ownerGoal = other.GetComponent<Goal>();
+            ownerGoal.AddScore(1);
+            owner = ownerGoal.GetPlayerNr();
             Debug.Log(owner);
 
             if (owner > -1 && owner < racerVisualList.racerVisuals.Count)
@@ -51,6 +53,8 @@ public class Ball : MonoBehaviour
         if ((goalLayer.value & (1 << other.gameObject.layer)) > 0)
         {
             owner = -1;
+            Goal ownerGoal = other.GetComponent<Goal>();
+            ownerGoal.AddScore(-1);
             rend.material = baseMaterial;
         }
     }

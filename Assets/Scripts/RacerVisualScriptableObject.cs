@@ -7,6 +7,7 @@ public class RacerVisualScriptableObject : ScriptableObject
 {
     public string playerName = "color";
     public Material racerMaterial;
+    public Material floorMaterial;
     public Color playerColor = Color.white;
     public Color fieldColor = Color.white;
 }
