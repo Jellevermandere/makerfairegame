@@ -56,6 +56,8 @@ public class NPCController : MonoBehaviour
     void Start()
     {
         input = inputController.playerInputs[racerNr];
+
+        if (UseRobot) Invoke("CalibrateOffset", 2);
     }
 
     // Update is called once per frame
@@ -132,6 +134,7 @@ public class NPCController : MonoBehaviour
                     
                 }
             }
+            if (targetBall == null) targetBall = spawner.racers[racerNr].goal;
             return targetBall;
         }
     }

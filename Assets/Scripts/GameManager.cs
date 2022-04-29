@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     private float spawnDelay = 1f;
     public bool playing = true;
     [SerializeField]
-    private float gameTime = 120;
+    public static float gameTime = 120;
 
     [Header("Scene objects")]
     [SerializeField]
@@ -26,6 +27,10 @@ public class GameManager : MonoBehaviour
     private Camera overviewCamera;
     [SerializeField]
     private RacerVisualListScriptableObject racerVisualList;
+    [SerializeField]
+    private Text countdownText;
+    [SerializeField]
+    private Text timerText;
 
     private float currentGameTime = 0f;
 
@@ -38,9 +43,11 @@ public class GameManager : MonoBehaviour
     {
         spawner.SpawnRacers();
         currentGameTime = gameTime;
-        Invoke("SetupCam", 1f);
+        StartCoroutine(CountDown());
 
         spawner.SpawnBallAsync(maxBalls, spawnDelay);
+
+        timerText.text = currentGameTime.ToString();
 
     }
 
@@ -49,10 +56,12 @@ public class GameManager : MonoBehaviour
         if (playing)
         {
             currentGameTime -= Time.deltaTime;
+            timerText.text = Mathf.RoundToInt(currentGameTime).ToString();
 
-            if(currentGameTime <= 0)
+            if (currentGameTime <= 0)
             {
-                EndGame();
+                timerText.text = "0";
+                StartCoroutine(EndGame());
             }
             UpdatePlacement();
         }
@@ -85,13 +94,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EndGame()
+    public IEnumerator EndGame()
     {
+        countdownText.text = "Finish!";
         playing = false;
-
         winnerText = "The Winner is: \n" + racerVisualList.racerVisuals[racerPlacement[0].playerNr].playerName + "\n" + racerPlacement[0].score;
+        yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
+    }
+
+    IEnumerator CountDown()
+    {
+        countdownText.text = "";
+        yield return new WaitForSeconds(2);
+        SetupCam();
+
+        yield return new WaitForSeconds(1);
+        countdownText.text = "3";
+        yield return new WaitForSeconds(1);
+        countdownText.text = "2";
+        yield return new WaitForSeconds(1);
+        countdownText.text = "1";
+        yield return new WaitForSeconds(1);
+        countdownText.text = "GO!";
+        playing = true;
+        yield return new WaitForSeconds(1);
+        countdownText.text = "";
     }
 }

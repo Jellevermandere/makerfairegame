@@ -14,6 +14,8 @@ public class Spawner : MonoBehaviour
     private float ballSpawnRadius = 10;
     [SerializeField]
     private float spawnHeight = 10f;
+    [SerializeField]
+    private GameManager gm;
 
     [SerializeField]
     public List<Transform> balls = new List<Transform>();
@@ -31,6 +33,7 @@ public class Spawner : MonoBehaviour
             RacerController racer = playerNull.GetComponentInChildren<RacerController>();
             racers.Add(racer);
             racer.playerNr = i;
+            racer.gm = gm;
             if(TryGetComponent(out InputController input))
             {
                 racer.inputController = input;

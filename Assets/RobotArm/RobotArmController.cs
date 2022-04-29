@@ -12,6 +12,9 @@ public class RobotArmController : MonoBehaviour
     private string url = "http://192.168.0.182/sliders";
 
     [SerializeField]
+    private bool sendAtStart = false;
+
+    [SerializeField]
     private bool update = false;
     [SerializeField]
     private bool smooth = true;
@@ -21,7 +24,7 @@ public class RobotArmController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (sendAtStart) SendAngles();
     }
 
     // Update is called once per frame

@@ -39,6 +39,7 @@ public class RacerController : MonoBehaviour
     private RacerInput playerInput = new RacerInput();
     private Rigidbody rb;
     private Vector3 forwardDirection = Vector3.forward;
+    public GameManager gm;
 
 
     // Start is called before the first frame update
@@ -68,7 +69,7 @@ public class RacerController : MonoBehaviour
 
     void MovePlayer()
     {
-        
+        if (!gm.playing) return;
         rb.AddForce(forwardDirection * playerInput.moveDirection.y * playerAcceleration * Time.deltaTime, ForceMode.VelocityChange);
         Debug.DrawRay(transform.position, forwardDirection * playerInput.moveDirection.y * playerAcceleration * Time.deltaTime);
         // get the angle difference between the current forward speed and the forward direction
