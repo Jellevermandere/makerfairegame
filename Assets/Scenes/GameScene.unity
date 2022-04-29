@@ -550,7 +550,7 @@ MonoBehaviour:
   maxBalls: 30
   spawnDelay: 0.1
   playing: 1
-  gameTime: 30
+  gameTime: 500
   inputController: {fileID: 474764950}
   spawner: {fileID: 474764954}
   overviewCamera: {fileID: 45173987}
@@ -663,7 +663,7 @@ PrefabInstance:
     - target: {fileID: 8686417263190011532, guid: 537b3bf11ff314bd58a639c44ebec665,
         type: 3}
       propertyPath: url
-      value: http://192.168.0.160/sliders
+      value: http://localhost:49504/sliders
       objectReference: {fileID: 0}
     - target: {fileID: 8686417263190011532, guid: 537b3bf11ff314bd58a639c44ebec665,
         type: 3}
