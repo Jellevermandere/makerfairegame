@@ -57,7 +57,7 @@ public class NPCController : MonoBehaviour
     {
         input = inputController.playerInputs[racerNr];
 
-        if (UseRobot) Invoke("CalibrateOffset", 2);
+        if (UseRobot) Invoke("CalibrateOffset", 4);
     }
 
     // Update is called once per frame
