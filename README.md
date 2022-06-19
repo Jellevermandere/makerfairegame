@@ -1,2 +1,2 @@
-# 1DGame
-an implementation of a 1D racing game in Unity
+# Robot Arm Game
+A Game designed to be played against a robot arm.
